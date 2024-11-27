@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package co.za.voelgoed.media
-=======
-package com.iqonic.bookkart_flutter
->>>>>>> ae21abeaa0319c719eda54e7b11e7019d33c88ee
 
 import io.flutter.embedding.android.FlutterActivity
 import androidx.annotation.NonNull
@@ -10,10 +6,7 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 import java.io.File
 import javax.crypto.Cipher
-<<<<<<< HEAD
 import co.za.voelgoed.media.FileEncryptionUtils
-=======
->>>>>>> ae21abeaa0319c719eda54e7b11e7019d33c88ee
 
 class MainActivity : FlutterActivity() {
 

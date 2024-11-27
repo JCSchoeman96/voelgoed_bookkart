@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package co.za.voelgoed.media
-=======
-package com.iqonic.bookkart_flutter
->>>>>>> ae21abeaa0319c719eda54e7b11e7019d33c88ee
 
 import android.content.Context
 import android.media.MediaCodec

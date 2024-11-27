@@ -10,11 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:708529425960:android:f40de6ebfed879ef27ef1d",
         "android_client_info": {
-<<<<<<< HEAD
           "package_name": "co.za.voelgoed.media"
-=======
-          "package_name": "com.iqonic.bookkart"
->>>>>>> ae21abeaa0319c719eda54e7b11e7019d33c88ee
         }
       },
       "oauth_client": [

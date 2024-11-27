@@ -1,9 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     package="co.za.voelgoed.media"
-=======
-    package="com.iqonic.bookkart_flutter"
->>>>>>> ae21abeaa0319c719eda54e7b11e7019d33c88ee
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,11 +16,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-<<<<<<< HEAD
         android:label="Voelgoed Media"
-=======
-        android:label="BookKart"
->>>>>>> ae21abeaa0319c719eda54e7b11e7019d33c88ee
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true"
         android:networkSecurityConfig="@xml/network_security_config"
