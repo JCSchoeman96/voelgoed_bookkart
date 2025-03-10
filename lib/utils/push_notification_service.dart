@@ -33,17 +33,8 @@ class PushNotificationService {
   Future<void> registerFCMAndTopics() async {
     if (Platform.isIOS) {
       String? apnsToken = await FirebaseMessaging.instance.getAPNSToken();
-      if (apnsToken != null) {
-        subScribeToTopic();
-      } else {
-        Future.delayed(const Duration(seconds: 3), () async {
-          apnsToken = await FirebaseMessaging.instance.getAPNSToken();
-          if (apnsToken != null) {
-            subScribeToTopic();
-          }
-        });
-      }
-      log('APNSTOKEN: $apnsToken');
+      subScribeToTopic();
+          log('APNSTOKEN: $apnsToken');
     } else {
       subScribeToTopic();
     }

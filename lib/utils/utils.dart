@@ -26,30 +26,30 @@ Future<String> getKey(time) async {
 String reviewConvertDate(String dateString) {
   try {
     if (!dateString.endsWith('Z')) {
-      dateString += 'Z'; 
+      dateString += 'Z';
     }
-    DateTime inputDate = DateTime.parse(dateString).toLocal(); 
+    DateTime inputDate = DateTime.parse(dateString).toLocal();
     DateTime now = DateTime.now();
     Duration difference = now.difference(inputDate);
 
-if (difference.inDays == 0) {
-  if (difference.inHours > 0) {
-    return '${difference.inHours} hour${difference.inHours > 1 ? 's' : ''} ago';
-  } else if (difference.inMinutes > 0) {
-    return '${difference.inMinutes} minute${difference.inMinutes > 1 ? 's' : ''} ago'; 
-  } else {
-    return "just now";
-  }
-} else if (difference.inDays == 1) {
-  return "yesterday";
-} else if (difference.inDays <= 2) {
-  return '${difference.inDays} days ago';
-} else {
-  return DateFormat('dd MMM, yyyy').format(inputDate);
-}
+    if (difference.inDays == 0) {
+      if (difference.inHours > 0) {
+        return '${difference.inHours} hour${difference.inHours > 1 ? 's' : ''} ago';
+      } else if (difference.inMinutes > 0) {
+        return '${difference.inMinutes} minute${difference.inMinutes > 1 ? 's' : ''} ago';
+      } else {
+        return "just now";
+      }
+    } else if (difference.inDays == 1) {
+      return "yesterday";
+    } else if (difference.inDays <= 2) {
+      return '${difference.inDays} days ago';
+    } else {
+      return DateFormat('dd MMM, yyyy').format(inputDate);
+    }
   } catch (e) {
-    log('Error parsing date: $e'); 
-    return 'invalid date'; 
+    log('Error parsing date: $e');
+    return 'invalid date';
   }
 }
 
@@ -75,19 +75,22 @@ Future<bool> checkPermission() async {
 }
 
 Future<String> get localPath async {
-  Directory? directory;
+  try {
+    Directory? directory;
 
-  if (Platform.isAndroid) {
-    directory = await getExternalStorageDirectory();
-  } else {
-    if (Platform.isIOS) {
+    if (Platform.isAndroid) {
+      directory = await getExternalStorageDirectory();
+    } else if (Platform.isIOS) {
       directory = await getApplicationDocumentsDirectory();
     } else {
       throw "Unsupported platform";
     }
-  }
 
-  return directory!.path;
+    return directory?.path ?? ""; // ✅ Fixed: Always return a valid string
+  } catch (e) {
+    log("Error getting localPath: $e");
+    return "";
+  }
 }
 
 Future<String> getBookFileName(String? bookId, String url, {isSample = false}) async {
@@ -95,10 +98,10 @@ Future<String> getBookFileName(String? bookId, String url, {isSample = false}) a
 
   String fileNameNew = url;
 
-  if (name.length > 0) fileNameNew = name[name.length - 1];
+  if (name.isNotEmpty) fileNameNew = name.last;
 
   fileNameNew = fileNameNew.replaceAll("%", "");
-  String fileName = isSample ? bookId! + "_sample_" + fileNameNew : bookId! + "_purchased_" + fileNameNew;
+  String fileName = isSample ? "${bookId!}_sample_$fileNameNew" : "${bookId!}_purchased_$fileNameNew";
   log("File Name: " + fileName);
 
   return fileName;
@@ -106,7 +109,7 @@ Future<String> getBookFileName(String? bookId, String url, {isSample = false}) a
 
 Future<String> getBookFilePath(String? bookId, String url, {isSampleFile = false}) async {
   String path = await localPath;
-  String filePath = path + "/" + await getBookFileName(bookId, url, isSample: isSampleFile);
+  String filePath = "$path/${await getBookFileName(bookId, url, isSample: isSampleFile)}";
   filePath = filePath.replaceAll("null/", "");
   log("--- FULL FILE PATH: " + filePath);
 

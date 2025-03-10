@@ -209,21 +209,19 @@ class _PdfEpubViewScreenState extends State<PdfEpubViewScreen> {
         fileName: '',
       );
 
-      if (data != null) {
-        if (data.validate().isEmpty) {
-          dbHelper.insert(book);
-        } else {
-          data.toSet().toList();
-          data.forEach((element) {
-            element.offlineBook.forEach((element) {
-              if (element.filePath != filePath) {
-                dbHelper.insert(book);
-              }
-            });
+      if (data.validate().isEmpty) {
+        dbHelper.insert(book);
+      } else {
+        data?.toSet().toList() ?? [];
+        data?.forEach((element) {
+          element.offlineBook.forEach((element) {
+            if (element.filePath != filePath) {
+              dbHelper.insert(book);
+            }
           });
-        }
+        });
       }
-    // }
+        // }
   }
 
   void stopLoading() {

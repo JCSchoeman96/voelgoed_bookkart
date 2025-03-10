@@ -76,7 +76,7 @@ void main() async {
     log("Firebase remote config error : ${e.toString()}");
     log('------------------------------------------------------------------------\n\n');
   });
-  await appStore.setLanguage(getStringAsync(SELECTED_LANGUAGE_CODE), isInitializing: true);
+  await appStore.setLanguage(getStringAsync(SELECTED_LANGUAGE_CODE, defaultValue: 'af'), isInitializing: true);
 
   if (appStore.isLoggedIn) {
     await appStore.setUserEmail(getStringAsync(USER_EMAIL), isInitializing: true);

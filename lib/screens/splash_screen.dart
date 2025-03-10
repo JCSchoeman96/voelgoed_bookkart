@@ -71,12 +71,12 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                 speed: 4.seconds,
                 textStyle: boldTextStyle(size: 50),
                 colors: [
-                  context.primaryColor,
-                  accentColor,
-                  context.primaryColor,
-                  accentColor,
-                  context.primaryColor,
-                  accentColor,
+                  primaryColor, // Primary Orange
+                  accentColor, // Accent Blue
+                  primaryColor.withOpacity(0.8),
+                  accentColor.withOpacity(0.8),
+                  primaryColor.withOpacity(0.6),
+                  accentColor.withOpacity(0.6),
                 ],
               ).paddingOnly(right: 10, left: 10, top: 20)
             ],

@@ -1,3 +1,4 @@
+import 'package:bookkart_flutter/locale/language_af.dart';
 import 'package:bookkart_flutter/locale/language_ar.dart';
 import 'package:bookkart_flutter/locale/language_hi.dart';
 import 'package:bookkart_flutter/locale/languages_de.dart';
@@ -24,9 +25,10 @@ class AppLocalizations extends LocalizationsDelegate<BaseLanguage> {
         return LanguageFr();
       case 'de':
         return LanguageDe();
-
+      case 'af':
+        return LanguageAf();
       default:
-        return LanguageEn();
+        return LanguageAf();
     }
   }
 

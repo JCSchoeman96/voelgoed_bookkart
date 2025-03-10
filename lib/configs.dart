@@ -1,16 +1,16 @@
 import 'package:country_picker/country_picker.dart';
 
-const APP_NAME = 'BookKart';
-const DEFAULT_LANGUAGE = 'en';
+const APP_NAME = 'Voelgoed Media';
+const DEFAULT_LANGUAGE = 'af';
 
 
 const DOMAIN_URL = "";
 
-const BASE_URL = '$DOMAIN_URL/wp-json/';
+const BASE_URL = 'https://voelgoedwinkel.co.za/wp-json/';
 
 // LIVE
-const CONSUMER_SECRET = '';
-const CONSUMER_KEY = '';
+const CONSUMER_SECRET = 'cs_7fed19ef9ae02be3d24a3ced8e1c4485cb2b5427';
+const CONSUMER_KEY = 'ck_0d62dc8088c5fa89d1051eeda1d917dfd390f4e8';
 
 
 const IOS_LINK_FOR_USER = '';
@@ -33,20 +33,20 @@ const BANNER_AD_ID_IOS = '';
 const INTERSTITIAL_AD_ID_ANDROID = '';
 const INTERSTITIAL_AD_ID_IOS = '';
 
-const DEFAULT_COUNTRY_CODE = '+91';
+const DEFAULT_COUNTRY_CODE = '+27';
 
 Country defaultCountry() {
   return Country(
-    phoneCode: '91',
-    countryCode: 'IN',
-    e164Sc: 91,
+    phoneCode: '27',
+    countryCode: 'ZA',
+    e164Sc: 0,
     geographic: true,
     level: 1,
-    name: 'India',
-    example: '9123456789',
-    displayName: 'India (IN) [+91]',
-    displayNameNoCountryCode: 'India (IN)',
-    e164Key: '91-IN-0',
-    fullExampleWithPlusSign: '+919123456789',
+    name: 'South Africa',
+    example: '712345678',
+    displayName: 'South Africa (ZA) [+27]',
+    displayNameNoCountryCode: 'South Africa (ZA)',
+    e164Key: 'ZA-27-0',
+    fullExampleWithPlusSign: '+27712345678',
   );
 }

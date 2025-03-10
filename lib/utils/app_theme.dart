@@ -13,7 +13,7 @@ class AppTheme {
   static ThemeData get light {
     return ThemeData(
       useMaterial3: true,
-      primaryColor: Color(0xff4268cd),
+      primaryColor: primaryColor,
       cardColor: cardColor,
       dividerColor: borderColor,
       hoverColor: Colors.grey,
@@ -57,7 +57,7 @@ class AppTheme {
   static ThemeData get dark {
     return ThemeData(
       useMaterial3: true,
-      primaryColor: Color(0xff4268cd),
+      primaryColor: primaryColor,
       primaryColorDark: color_primary_black,
       highlightColor: appBackgroundColorDark,
       cardColor: cardBackgroundColor,
